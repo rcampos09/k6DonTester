@@ -8,15 +8,13 @@ Project example create in k6 load testing
 
 * [k6] - k6 is a developer-centric, free and open-source load testing tool built for making performance testing a productive and enjoyable experience.
 
-### Installation
-
+### Installation:
 
 Mac 
 ```sh
 $ brew install k6
 
 ```
-
 ### Runtest:
 Mac 
 ```sh
