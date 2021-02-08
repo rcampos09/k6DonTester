@@ -1,6 +1,6 @@
 # K6 Load Testing Example
 
-[![N|Solid](https://k6.io/images/landscape-icon.png)](https://k6.io/images/landscape-icon.png)
+[![N|Solid](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGam8KYS345ev11TiFafeBonvX0us_uRq0ew&usqp=CAU)](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGam8KYS345ev11TiFafeBonvX0us_uRq0ew&usqp=CAU)
 
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
