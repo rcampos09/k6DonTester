@@ -1,0 +1,33 @@
+version: '3.3'
+services:
+  influxdb:
+      container_name: influxdb
+      env_file: .env
+      environment:
+        - INFLUXDB_DB=${INFLUX_DB}
+        - INFLUX_USER=${INFLUX_USER}
+        - INFLUX_PASSWORD=${INFLUX_PASSWORD}
+      networks:
+        - redk6
+      volumes:
+        - 'influxdb:/var/lib/influxdb'
+      image: 'influxdb:1.8.4-alpine'
+  grafana:
+      container_name: grafana
+      env_file: .env
+      networks:
+        - redk6
+      ports:
+        - "3000:3000"
+      build: 
+        context: grafana
+      volumes:
+      - 'grafana_data:/var/lib/grafana'
+      depends_on:
+        - influxdb
+
+networks: 
+  redk6:
+volumes: 
+  influxdb:
+  grafana_data:

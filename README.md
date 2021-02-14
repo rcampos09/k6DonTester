@@ -22,4 +22,18 @@ $ k6 run scenario/scenarioTest1.js
 
 ```
 
+Project example create in k6 load testing
+
+
+Influx db
+
+```sh
+docker run -d --name=my-influxdb-custom -p 8086:8086 -v influxdb:/var/lib/ influxdbk6
+```
+
+Grafana
+```sh
+docker run -d --name=my-grafana-custom -p 3000:3000 grafana-custom
+```
+
    [k6]: <https://k6.io/>
