@@ -20,7 +20,7 @@ printf "
 Author : Rodrigo Antonio Campos Tapia
 Github : https://github.com/rcampos09
 repo   : https://github.com/rcampos09/k6-load-testing-example
-Package instalation : 
+Package installation : 
         - K6 Load Testing
         - Grafana Monitoring dashboard
         - Influxdb database no-sql  
