@@ -1,12 +1,11 @@
 import http from 'k6/http';
 import { parseHTML } from 'k6/html';
 import { check, sleep } from 'k6';
-
-
-const data = JSON.parse(open('../data/test/user.json'));
+const config = JSON.parse(open(`../config/${__ENV.STAGE}.env.json`));
+const data = JSON.parse(open(`../data/${__ENV.STAGE}/user.json`));
 
 export function loginPageGET() {
-    let res = http.get('https://test.k6.io/my_messages.php');
+    let res = http.get(`${config.env.url}/my_messages.php`);
 
     const doc = parseHTML(res.body);
     const redir = doc.find('body > form > input[type=hidden]:nth-child(1)').attr('value');
@@ -29,9 +28,9 @@ export function loginPagePOST(token){
     let redir = token[1];
 
     let formData = {redir: redir, csrftoken: csrftoken,login: credentials.username,password:credentials.password};
-    let headers = { 'Content-Type': 'application/x-www-form-urlencoded' };
 
-    let res = http.post('https://test.k6.io/login.php',formData,{headers: headers});
+    let headers = { 'Content-Type': 'application/x-www-form-urlencoded' };
+    let res = http.post(`${config.env.url}/login.php`,formData,{headers: headers});
 
     const doc = parseHTML(res.body);
     const newcsrftoken = doc.find('body > form > input[type=hidden]:nth-child(2)').attr('value');
@@ -49,7 +48,7 @@ export function logoutPagePOST(token){
     let formData = {redir: '1', csrftoken: token};
 
     let headers = { 'Content-Type': 'application/x-www-form-urlencoded' }
-    let res = http.post('https://test.k6.io/login.php',formData,{headers: headers});
+    let res = http.post(`${config.env.url}/login.php`,formData,{headers: headers});
 
     check(res, {
         'response is code 200 : logoutPagePOST': (res) => res.status === 200,
