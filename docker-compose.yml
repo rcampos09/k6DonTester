@@ -4,11 +4,13 @@ services:
       container_name: influxdb
       env_file: .env
       environment:
-        - INFLUXDB_DB=${INFLUX_DB}
         - INFLUX_USER=${INFLUX_USER}
         - INFLUX_PASSWORD=${INFLUX_PASSWORD}
+        - INFLUXDB_DB=${INFLUX_DB}
       networks:
         - redk6
+      ports:
+        - "8086:8086"
       volumes:
         - 'influxdb:/var/lib/influxdb'
       image: 'influxdb:1.8.4-alpine'
