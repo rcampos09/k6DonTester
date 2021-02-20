@@ -17,7 +17,7 @@ Mac
 $ brew install k6
 
 ```
-## Runtest Scenario K6:
+## Run test Scenario K6:
 Mac 
 ```sh
 $ k6 run -e MY_HOSTNAME=https://test.k6.io -e STAGE=https:local scenario/scenarioTest1.js
